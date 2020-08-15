@@ -38,7 +38,7 @@ public class TimerScript : MonoBehaviour
             else
             {
                 timerActive = false;
-                gameManager.HealthLoss();
+                StartCoroutine(gameManager.HealthLoss());
             }
         }
     }

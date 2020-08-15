@@ -32,8 +32,12 @@ public class GoUnderWater : MonoBehaviour
             {
                 StartCoroutine(GameObject.Find("Game Manager").GetComponent<GameManager>().HealthLoss());
             }
-            
+
+            // Disableing collider so player can't jump on submerged platform
+            GetComponent<BoxCollider>().enabled = false;
             yield return new WaitForSeconds(timeUnderWater);
+            GetComponent<BoxCollider>().enabled = true;
+
             submergeSpeed *= -1;
 
             upperBoundReached = false;
