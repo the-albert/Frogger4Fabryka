@@ -8,7 +8,14 @@ public class ObjMoveController : MonoBehaviour
     // Moving object at given speed and destroys it after reaching boundary
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed * GameValues.objSpeedModifier);
+        if (gameObject.CompareTag("Vehicle"))
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed * GameValues.vehicleSpeedModifier);
+        }
+        else if(gameObject.CompareTag("Platform") || gameObject.CompareTag("Turtle Platform"))
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed * GameValues.platformSpeedModifier);
+        }
 
         if (transform.position.x > boundaryX || transform.position.x < -boundaryX)
         {

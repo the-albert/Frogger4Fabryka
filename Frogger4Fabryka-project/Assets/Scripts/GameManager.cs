@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         isGameActive = true;
-
+        
         playerScript = GameObject.Find("Player").GetComponent<PlayerController>();
         timerScript = GameObject.Find("TimeBar").GetComponent<TimerScript>();
         audioSource = GetComponent<AudioSource>();
@@ -163,7 +163,7 @@ public class GameManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("HighScore", GameValues.wholeScore);
             }
-            endgameText.text = "Your Score: " + GameValues.wholeScore;
+            endgameText.text = "You reached level " + GameValues.currentLVL + " and scored: " + GameValues.wholeScore;
             endgameText.transform.parent.gameObject.SetActive(true);
         }
     }

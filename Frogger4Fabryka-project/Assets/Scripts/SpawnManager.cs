@@ -22,13 +22,13 @@ public class SpawnManager : MonoBehaviour
 
         if(gameObject.name == "Vehicle Spawn Manager")
         {
-            minSpawnDelay /= GameValues.spawnDelayModifier;
-            maxSpawnDelay /= GameValues.spawnDelayModifier;
+            minSpawnDelay /= GameValues.vehicleSpawnDelayModifier;
+            maxSpawnDelay /= GameValues.vehicleSpawnDelayModifier;
         }
         else if(gameObject.name == "Water Spawn Manager")
         {
-            minSpawnDelay *= GameValues.spawnDelayModifier;
-            maxSpawnDelay *= GameValues.spawnDelayModifier;
+            minSpawnDelay *= GameValues.platformSpawnDelayModifier;
+            maxSpawnDelay *= GameValues.platformSpawnDelayModifier;
         }
         StartCoroutine(SpawnObj());
     }
@@ -44,8 +44,8 @@ public class SpawnManager : MonoBehaviour
                 // Spawn from every spawn point
                 foreach (Transform spawnPoint in transform)
                 {
-                    // If game starts spawn vehicles immediatly 
-                    if (!firstSpawn || gameObject.name == "Water Spawn Manager")
+                    // If game starts spawn objects immediatly 
+                    if (!firstSpawn)
                     {
                         yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
                     }
@@ -65,8 +65,8 @@ public class SpawnManager : MonoBehaviour
                         }
                     }
 
-                    // Vehicles spawn in the middle for the first time
-                    if (instantiatedObj.CompareTag("Vehicle") && firstSpawn)
+                    // objects spawn in the middle for the first time
+                    if (firstSpawn)
                     {
                         if (spawnPoint.position.x < 0)
                         {
