@@ -70,11 +70,11 @@ public class SpawnManager : MonoBehaviour
                     {
                         if (spawnPoint.position.x < 0)
                         {
-                            spawnPoint.position -= new Vector3(5, 0, 0);
+                            spawnPoint.position -= new Vector3(5.9f, 0, 0);
                         }
                         else if (spawnPoint.position.x > 0)
                         {
-                            spawnPoint.position += new Vector3(5, 0, 0);
+                            spawnPoint.position += new Vector3(5.9f, 0, 0);
                         }
                     }
 

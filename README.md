@@ -1,2 +1,2 @@
 # Frogger4Fabryka
- Frogger kind of game build in unity
+ Frogger kind of game builded in unity
